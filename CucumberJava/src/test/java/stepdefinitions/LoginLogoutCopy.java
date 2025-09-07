@@ -1,4 +1,4 @@
-package stepdefinations;
+package stepdefinitions;
 
 
 
@@ -14,7 +14,7 @@ import io.cucumber.java.en.*;
 import pages.LoginlogoutPage;
 
 
-public class LoginlogoutSteps {
+public class LoginLogoutCopy {
 
 	WebDriver driver = null;
 	LoginlogoutPage loginlogout;

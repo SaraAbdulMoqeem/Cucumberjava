@@ -15,7 +15,9 @@ public class LoginlogoutPage {
 	By txt_email = By.name("email");
 	By txt_password = By.name("password");
 	By btn_login = By.xpath("//button[normalize-space()='Login']");
-	By btn_logout = By.xpath("//a[normalize-space()='Logout']");
+	By btn_home = By.linkText("Home");
+	By btn_logout = By.linkText("Logout");  
+	By btn_signup = By.linkText("Signup / Login");
 
 	public LoginlogoutPage(WebDriver driver) {
 		this.driver = driver;
@@ -34,7 +36,15 @@ public class LoginlogoutPage {
 		driver.findElement(btn_login).click(); 
 		}
 
+	public void checkHomeIsDisplayed() {
+		driver.findElement(btn_home).isDisplayed();
+	}
+	
 	public void clickLogout () { 
-		driver.findElement(btn_login).click(); 
+		driver.findElement(btn_logout).click(); 
 		}
+	
+	public void checkSignupIsDisplayed() {
+		driver.findElement(btn_signup).isDisplayed();
+	}
 }
