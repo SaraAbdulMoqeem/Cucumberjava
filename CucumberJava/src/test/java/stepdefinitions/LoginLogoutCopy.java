@@ -2,6 +2,7 @@ package stepdefinitions;
 
 
 
+import utils.ErrorLogger;
 
 
 import java.time.Duration;
@@ -38,12 +39,17 @@ public class LoginLogoutCopy {
 	}
 
 	@When("user enters {string} and {string}")
-	public void user_enters_email_and_password(String email, String password) throws InterruptedException {
-	    loginlogout = new LoginlogoutPage(driver);
-	    loginlogout.enteremail(email);
-	    loginlogout.enterpassword(password);
-	    Thread.sleep(2000);
+	public void user_enters_email_and_password(String email, String password) {
+	    try {
+	        loginlogout = new LoginlogoutPage(driver);
+	        loginlogout.enteremail(email);
+	        loginlogout.enterpassword(password);
+	    } catch (Exception e) {
+	        ErrorLogger.logError("❌ Failed to enter email or password", e);
+	        throw e;
+	    }
 	}
+
 		//driver.findElement(By.name("email")).sendKeys("sarah.moqeem@gmail.com");
 		// driver.findElement(By.name("password")).sendKeys("Abdullah1!");
 	
